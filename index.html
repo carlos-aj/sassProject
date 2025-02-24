@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Estates</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <img src="img/logo.png" alt="Horizon Estates Logo" class="logo-img">
+        </div>
+        <nav class="header__nav">
+            <div class="nav__item"><a href="#inicio">Inicio</a></div>
+            <div class="nav__item"><a href="#categorias">Categorías</a></div>
+            <div class="nav__item"><a href="#casas-destacadas">Casas Destacadas</a></div>
+            <div class="nav__item"><a href="#resenas">Reseñas</a></div>
+        </nav>
+    </header>
+    <section id="inicio" class="hero">
+        <h1 class="hero__title">Encuentra tu villa de lujo perfecta</h1>
+        <p class="hero__subtitle">Explora los destinos más exclusivos y vive experiencias inolvidables.</p>
+        <a href="#" class="hero__button">Descubre más</a>
+    </section>
+    <section id="categorias" class="categories">
+        <div class="category">
+            <div class="category__front">
+                <i class="fas fa-tree category__icon"></i>
+                <h3 class="category__name">Campo</h3>
+            </div>
+            <div class="category__back">
+                <p class="category__info">Disfruta de la tranquilidad del campo.</p>
+            </div>
+        </div>
+        <div class="category">
+            <div class="category__front">
+                <i class="fas fa-umbrella-beach category__icon"></i>
+                <h3 class="category__name">Playa</h3>
+            </div>
+            <div class="category__back">
+                <p class="category__info">Relájate en las mejores playas.</p>
+            </div>
+        </div>
+        <div class="category">
+            <div class="category__front">
+                <i class="fas fa-city category__icon"></i>
+                <h3 class="category__name">Ciudad</h3>
+            </div>
+            <div class="category__back">
+                <p class="category__info">Explora las ciudades más vibrantes.</p>
+            </div>
+        </div>
+        <div class="category">
+            <div class="category__front">
+                <i class="fas fa-basketball-ball category__icon"></i>
+                <h3 class="category__name">Deportes</h3>
+            </div>
+            <div class="category__back">
+                <p class="category__info">Practica tus deportes favoritos.</p>
+            </div>
+        </div>
+    </section>
+<section class="advertisement">
+        <h2 class="advertisement__slogan">¡Oferta exclusiva! Reserva ahora y obtén un 20% de descuento</h2>
+        <a href="#" class="advertisement__button">Reserva ahora</a>
+    </section>
+    <section id="casas-destacadas" class="card-container">
+        <div class="card">
+            <img src="img/CasaPlaya.png" alt="Villa en la playa">
+            <h3>Villa en la Playa</h3>
+            <p>Una casa de lujo con vistas espectaculares al mar.</p>
+            <a href="#" class="card__button">Ver más</a>
+        </div>
+        <div class="card">
+            <img src="img/CasaMontana.png" alt="Casa en la montaña">
+            <h3>Casa en la Montaña</h3>
+            <p>Disfruta de la tranquilidad y la naturaleza en este refugio.</p>
+            <a href="#" class="card__button">Ver más</a>
+        </div>
+    </section>
+    <section id="resenas" class="reviews">
+        <h2 class="reviews__title">Reseñas</h2>
+        <div id="reviewsCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="review">
+                        <p class="review__text">"Una experiencia increíble, la villa era espectacular y el servicio excelente."</p>
+                        <p class="review__author">- Juan Pérez</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class=" ">
+                        <p class="review__text">"Las vistas eran impresionantes y la casa estaba muy bien equipada."</p>
+                        <p class="review__author">- María García</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="review">
+                        <p class="review__text">"Un lugar perfecto para unas vacaciones de lujo, muy recomendable."</p>
+                        <p class="review__author">- Carlos López</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#reviewsCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#reviewsCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__info">
+                <p class="footer__text">© 2024 Horizon Estates. Todos los derechos reservados.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="newsletter">
+                <h3>Suscríbete a nuestro boletín</h3>
+                <form>
+                    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+    </footer>    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript para resaltar la sección activa en el header
+        $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                }
+            });
+
+            $(window).on('scroll', function() {
+                var scrollPos = $(document).scrollTop();
+                $('.header__nav a').each(function() {
+                    var currLink = $(this);
+                    var refElement = $(currLink.attr("href"));
+                    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                        $('.header__nav a').removeClass("active");
+                        currLink.addClass("active");
+                    } else {
+                        currLink.removeClass("active");
+                    }
+                });
+
+                // Cambiar la opacidad del header al hacer scroll
+                if (scrollPos > 50) {
+                    $('.header').addClass('scrolled');
+                } else {
+                    $('.header').removeClass('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

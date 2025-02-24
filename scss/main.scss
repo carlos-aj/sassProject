@@ -1,0 +1,13 @@
+@use "base/variables";
+@use "base/mixins";
+@use "components/buttons";
+@use "components/cards";
+@use "layouts/header";
+@use "layouts/footer";
+@use "layouts/hero";
+@use "layouts/categories";
+@use "layouts/reviews"; // Importar el archivo de reseñas
+@use "layouts/advertisement";
+@use "layouts/featured-houses";
+@use "utils/functions";
+@use "utils/placeholders";

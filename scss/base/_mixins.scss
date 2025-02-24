@@ -1,0 +1,37 @@
+@use "sass:color";
+@use "variables" as *;
+
+// 📌 Flexbox
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+// 🎨 Botones
+@mixin button($bg-color) {
+  background-color: $bg-color;
+  color: white;
+  padding: 0.625rem 1.25rem; // 10px 20px
+  border-radius: 0.3125rem; // 5px
+  font-weight: bold;
+  text-transform: uppercase;
+  &:hover {
+    background-color: color.adjust($bg-color, $lightness: -10%);
+  }
+}
+
+// Mixin para fuentes
+@mixin font($size, $weight: normal, $family: $primary-font) {
+  font-size: $size;
+  font-weight: $weight;
+  font-family: $family;
+}
+
+// Mixin para flexbox
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

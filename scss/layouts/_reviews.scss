@@ -1,0 +1,108 @@
+@use "sass:color";
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+// Estilos mejorados para la sección de reseñas
+.reviews {
+  background-color: $background-color; // Aplicando el color de fondo definido
+  color: $text-color;
+  padding: 4rem 1.5rem;
+  text-align: center;
+
+  .reviews__title {
+    @include font($large-font-size * 1.8, bold, $secondary-font);
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    color: $primary-color;
+  }
+
+  .carousel {
+    position: relative;
+    display: flex;
+    flex-direction: flex;
+    align-items: center;
+
+    .carousel-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; // Center the review container
+      overflow: hidden;
+      width: 100%;
+
+      .carousel-item {
+        display: none; // Ocultar por defecto
+        flex: 0 0 100%;
+        max-width: 60%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 2rem;
+        background-color: $text-color; // Color diferente para el contenedor de cada review
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        color: $secondary-color;
+        opacity: 0;
+        transform: translateX(100px);
+        margin: 0 auto; // Center the review container
+      }
+      
+      .carousel-item.active {
+        display: flex; // Solo mostrar el activo
+        opacity: 1;
+        transform: translateX(0);
+        animation: slideIn 0.5s ease-in-out; // Add slide-in effect
+      }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: $text-color;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .carousel-control-prev {
+      left: 10%;
+    }
+
+    .carousel-control-next {
+      right: 10%;
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+      background-color: color.adjust($text-color, $lightness: -10%);
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: invert(100%);
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// Define the slide-in animation
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
