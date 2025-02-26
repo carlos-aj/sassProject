@@ -6,7 +6,6 @@ const cleanCSS = require("gulp-clean-css");
 const browserSync = require("browser-sync").create();
 const sourcemaps = require('gulp-sourcemaps');
 
-// ✅ Compilar Sass
 gulp.task("styles", function () {
   return gulp.src("scss/main.scss")
     .pipe(sourcemaps.init())
@@ -18,12 +17,10 @@ gulp.task("styles", function () {
     .pipe(browserSync.stream());
 });
 
-// ✅ Servidor con BrowserSync
 gulp.task("serve", function () {
   browserSync.init({ server: "./" });
   gulp.watch("scss/**/*.scss", gulp.series("styles"));
   gulp.watch("*.html").on("change", browserSync.reload);
 });
 
-// ✅ Tarea por defecto
 gulp.task("default", gulp.series("styles", "serve"));

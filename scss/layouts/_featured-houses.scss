@@ -1,48 +1,176 @@
+@use "sass:color";
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 
-// Estilos para la sección de casas destacadas
+/// Estilos para la sección de publicidad.
+///
+/// Esta sección está diseñada para mostrar anuncios de manera destacada, con un fondo llamativo y un diseño con una animación sutil en el fondo. Los elementos dentro de la sección incluyen un eslogan, un icono representativo y un botón de llamada a la acción.
+/// La sección tiene un fondo de color principal con un patrón diagonal de líneas semitransparentes.
+/// @group Advertisement Section
+.advertisement {
+  background-color: $primary-color;
+  color: #fff;
+  padding: 4rem 1.25rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  /// Fondo con patrón diagonal animado.
+  ///
+  /// Un patrón diagonal semi-transparente que se aplica sobre el fondo.
+  /// @group Advertisement Effects
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+    background-size: 4rem 4rem;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  /// Estilo para el eslogan dentro de la sección de publicidad.
+  /// @group Advertisement Elements
+  .advertisement__slogan {
+    @include font($large-font-size * 1.5, bold, $secondary-font);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .advertisement__icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .advertisement__button {
+    @include button($accent-color);
+    margin-top: 1rem;
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+      background-color: color.adjust($accent-color, $lightness: -10%);
+    }
+  }
+}
+
+/// Estilos para la sección de categorías.
+/// @group Categories Section
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem;
+  padding: 3.125rem;
+  text-align: center;
+  background-color: $background-color;
+
+  .category {
+    background-color: #fff;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 0.3125rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease-in-out, background-color 0.6s ease-in-out;
+    perspective: 1000px;
+    height: 20rem;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .category__front,
+    .category__back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 0.3125rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .category__front {
+      .category__icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        color: $primary-color;
+      }
+
+      .category__name {
+        @include font($large-font-size, bold);
+        color: $text-color;
+      }
+    }
+
+    .category__back {
+      transform: rotateY(180deg);
+      padding: 2rem;
+
+      .category__info {
+        @include font($base-font-size);
+        color: #fff;
+      }
+    }
+
+    &:hover {
+      transform: rotateY(180deg);
+      background: linear-gradient(to right, $primary-color, lighten($primary-color, 20%));
+    }
+  }
+}
+
+/// Estilos para la sección de casas destacadas.
+/// @group Featured Properties Section
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr)); // 300px
-  gap: 2rem; // 32px
-  padding: 3.125rem; // 50px
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  gap: 2rem;
+  padding: 3.125rem;
   background-color: $background-color;
 
   .card {
     background-color: #fff;
     border: 1px solid $background-color;
-    padding: 1.25rem; // 20px
-    border-radius: 0.3125rem; // 5px
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); // 2px 4px
+    padding: 1.25rem;
+    border-radius: 0.3125rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 
     img {
       width: 100%;
-      border-radius: 0.625rem; // 10px
-      margin-bottom: 1rem; // 16px
+      border-radius: 0.625rem;
+      margin-bottom: 1rem;
     }
 
     h3 {
       font-size: 1.5rem;
       color: $primary-color;
-      margin-top: 0.625rem; // 10px
+      margin-top: 0.625rem;
     }
 
     p {
       color: $text-color;
-      margin: 0.625rem 0; // 10px
+      margin: 0.625rem 0;
     }
 
     .card__button {
       @include button($primary-color);
-      margin-top: 0.625rem; // 10px
+      margin-top: 0.625rem;
     }
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); // 4px 8px
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     }
 
     &--featured {

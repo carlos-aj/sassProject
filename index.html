@@ -23,7 +23,7 @@
     </header>
     <section id="inicio" class="hero">
         <h1 class="hero__title">Encuentra tu villa de lujo perfecta</h1>
-        <p class="hero__subtitle">Explora los destinos más exclusivos y vive experiencias inolvidables.</p>
+        <p class="hero__subtitle">Explora los destinos más exclusivos y vive experiencias inolvidables</p>
         <a href="#" class="hero__button">Descubre más</a>
     </section>
     <section id="categorias" class="categories">
@@ -33,7 +33,7 @@
                 <h3 class="category__name">Campo</h3>
             </div>
             <div class="category__back">
-                <p class="category__info">Disfruta de la tranquilidad del campo.</p>
+                <p class="category__info">Disfruta de la tranquilidad del campo</p>
             </div>
         </div>
         <div class="category">
@@ -42,7 +42,7 @@
                 <h3 class="category__name">Playa</h3>
             </div>
             <div class="category__back">
-                <p class="category__info">Relájate en las mejores playas.</p>
+                <p class="category__info">Relájate en las mejores playas</p>
             </div>
         </div>
         <div class="category">
@@ -51,7 +51,7 @@
                 <h3 class="category__name">Ciudad</h3>
             </div>
             <div class="category__back">
-                <p class="category__info">Explora las ciudades más vibrantes.</p>
+                <p class="category__info">Explora las ciudades más vibrantes</p>
             </div>
         </div>
         <div class="category">
@@ -60,7 +60,7 @@
                 <h3 class="category__name">Deportes</h3>
             </div>
             <div class="category__back">
-                <p class="category__info">Practica tus deportes favoritos.</p>
+                <p class="category__info">Practica tus deportes favoritos</p>
             </div>
         </div>
     </section>
@@ -126,7 +126,7 @@
                 </div>
             </div>
             <div class="newsletter">
-                <h3>Suscríbete a nuestro boletín</h3>
+                <h3>Suscríbete y no te pierdas nuestras ofertas</h3>
                 <form>
                     <input type="email" name="email" placeholder="Tu correo electrónico" required>
                     <button type="submit">Suscribirse</button>
@@ -138,7 +138,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // JavaScript para resaltar la sección activa en el header
         $(document).ready(function() {
             $('a[href^="#"]').on('click', function(event) {
                 var target = $(this.getAttribute('href'));
@@ -163,7 +162,6 @@
                     }
                 });
 
-                // Cambiar la opacidad del header al hacer scroll
                 if (scrollPos > 50) {
                     $('.header').addClass('scrolled');
                 } else {

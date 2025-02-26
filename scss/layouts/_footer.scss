@@ -1,84 +1,178 @@
 @use "../base/mixins" as *;
 @use "../base/variables" as *;
 
+/// Estilos para el pie de página (Footer).
+///
+/// El pie de página tiene un fondo oscuro con texto blanco. Los elementos están distribuidos en un
+/// diseño flexible que se adapta a diferentes tamaños de pantalla. También incluye una sección de
+/// redes sociales y una de suscripción a un boletín.
+///
+/// @group Footer Section
 .footer {
-  background: $secondary-color;
-  color: white;
-  padding: 20px 0;
+  background: darken($secondary-color, 5%); // Fondo ligeramente más oscuro que el color secundario
+  color: white; // Color de texto blanco
+  padding: 40px 0; // Espaciado en la parte superior e inferior
   text-align: center;
 
+  /// Estilo para el contenido del pie de página.
+  ///
+  /// La sección del contenido se distribuye en una fila flexible. El contenido es responsivo,
+  /// adaptándose a pantallas más pequeñas.
   .footer__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; // Centra el contenido
     padding: 20px;
 
     @media (max-width: 768px) {
-      flex-direction: column;
-      text-align: center;
+      flex-direction: column; // Cambia la dirección a columna en pantallas pequeñas
+      text-align: center; // Centra el texto
     }
   }
 
+  /// Estilo para la información general.
+  ///
+  /// Se incluye una sección con texto centrado que puede contener información del sitio o
+  /// derechos de autor.
   .footer__info {
-    flex: 1;
+    flex: 1; 
     text-align: center;
+
+    .footer__text {
+      font-size: 0.9rem; 
+      margin-bottom: 10px;
+      color: rgba(255, 255, 255, 0.8); 
+    }
   }
 
-  .footer__text {
-    margin-bottom: 10px;
-  }
-
+  /// Estilos para los iconos de redes sociales.
+  ///
+  /// Los iconos son enlaces que cambian de color y tamaño al pasar el ratón por encima.
   .social-icons {
     margin-top: 10px;
 
     a {
-      color: white;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: transform 0.3s ease, color 0.3s ease;
+      color: white; 
+      margin: 0 12px; 
+      font-size: 1.6rem; 
+      transition: transform 0.3s ease, color 0.3s ease; 
 
+      /// Efecto hover sobre los iconos de redes sociales.
+      ///
+      /// Al pasar el ratón por encima, el color cambia a un tono más claro y el icono aumenta de tamaño.
       &:hover {
-        color: lighten($primary-color, 10%);
-        transform: translateY(-5px);
+        color: lighten($primary-color, 10%); 
+        transform: scale(1.1); 
+      }
+
+      /// Estilo cuando un icono está en foco.
+      ///
+      /// Cuando el icono es enfocado (por ejemplo, cuando es seleccionado con el teclado),
+      /// se agrega un borde alrededor de él.
+      &:focus {
+        outline: 2px solid $primary-color;
+        border-radius: 5px; 
       }
     }
   }
 
+  /// Estilos para el formulario de suscripción al boletín.
+  ///
+  /// La sección del boletín contiene un formulario para que los usuarios se suscriban al
+  /// boletín. Los campos de entrada tienen un estilo distintivo y el botón tiene una animación
+  /// de hover.
   .newsletter {
     flex: 1;
     text-align: center;
     margin-top: 20px;
 
     h3 {
-      margin-bottom: 10px;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
+    /// Estilo para el formulario dentro del boletín.
+    ///
+    /// El formulario se ajusta para ser responsivo y tiene un diseño flexible.
     form {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
+      gap: 10px;
     }
 
+    /// Estilo para el campo de entrada de correo electrónico.
+    ///
+    /// El campo de entrada tiene un borde redondeado y cambia de color y sombra cuando es enfocado.
     input[type="email"] {
-      padding: 12px;
+      padding: 12px 15px; 
       border: 2px solid transparent;
       border-radius: 25px;
       outline: none;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      width: 250px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+      width: 260px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.1); 
+      color: white;
 
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.6); 
+      }
+
+      /// Estilo cuando el campo de correo electrónico está enfocado.
+      ///
+      /// Se cambia el color del borde y se agrega una sombra alrededor del campo.
       &:focus {
         border-color: $primary-color;
-        box-shadow: 0 0 10px rgba($primary-color, 0.5);
+        box-shadow: 0 0 10px rgba($primary-color, 0.5); 
+        background: rgba(255, 255, 255, 0.2); 
       }
     }
 
+    /// Estilo para el botón de envío del boletín.
+    ///
+    /// El botón de envío tiene un estilo distintivo y efectos de hover para hacerlo interactivo.
     button {
-      @include button($primary-color);
+      @include button($primary-color); 
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease-in-out;
+
+      /// Efecto hover sobre el botón.
+      ///
+      /// Al pasar el ratón sobre el botón, cambia el color de fondo y el tamaño del botón.
+      &:hover {
+        background: lighten($primary-color, 10%); 
+        transform: scale(1.05); 
+      }
     }
+  }
+}
+
+/// **Media Queries** para mejor responsividad.
+///
+/// Asegura que el pie de página se ajuste adecuadamente en pantallas más pequeñas,
+/// especialmente las redes sociales y la sección de boletín.
+@media (max-width: 768px) {
+  .footer__content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .newsletter form {
+    flex-direction: column; 
+    gap: 15px; 
+  }
+
+  .social-icons {
+    margin-top: 15px;
   }
 }

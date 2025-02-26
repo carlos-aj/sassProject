@@ -1,4 +1,13 @@
-// Placeholder para clearfix
+/// Placeholder para clearfix.
+///
+/// Este placeholder aplica el método `clearfix` para resolver problemas de colapso de márgenes
+/// y contenedores flotantes. Se utiliza comúnmente cuando hay elementos flotantes dentro de un
+/// contenedor, para asegurarse de que el contenedor recupere su altura correctamente.
+///
+/// @example scss - Uso de `%clearfix`
+///   .container {
+///     @extend %clearfix;
+///   }
 %clearfix {
   &::after {
     content: "";

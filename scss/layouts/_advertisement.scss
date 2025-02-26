@@ -2,15 +2,23 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 
-// Estilos para la sección de publicidad
+/// Estilos para la sección de publicidad.
+///
+/// Esta sección está diseñada para mostrar anuncios de manera destacada, con un fondo llamativo y un diseño con una animación sutil en el fondo. Los elementos dentro de la sección incluyen un eslogan, un icono representativo y un botón de llamada a la acción.
+/// La sección tiene un fondo de color principal con un patrón diagonal de líneas semitransparentes.
+/// @group Advertisement Section
 .advertisement {
-  background-color: $primary-color;
-  color: #fff;
-  padding: 4rem 1.25rem; // 64px 20px
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  background-color: $primary-color; // Color de fondo principal
+  color: #fff; 
+  padding: 4rem 1.25rem; 
+  text-align: center; 
+  position: relative; 
+  overflow: hidden; 
 
+  /// Fondo con patrón diagonal animado.
+  ///
+  /// Un patrón diagonal semi-transparente que se aplica sobre el fondo.
+  /// @group Advertisement Effects
   &::before {
     content: "";
     position: absolute;
@@ -19,30 +27,47 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
-    background-size: 4rem 4rem; // 64px 64px
-    opacity: 0.5;
-    z-index: 1;
+    background-size: 4rem 4rem; 
+    opacity: 0.5; 
+    z-index: 1; 
   }
 
+  /// Estilo para el eslogan dentro de la sección de publicidad.
+  ///
+  /// Texto destacado que se posiciona encima del patrón de fondo.
+  /// @group Advertisement Elements
   .advertisement__slogan {
-    @include font($large-font-size * 1.5, bold, $secondary-font);
-    margin-bottom: 1rem; // 16px
-    position: relative;
-    z-index: 2;
+    @include font($large-font-size * 1.5, bold, $secondary-font); 
+    margin-bottom: 1rem; 
+    position: relative; 
+    z-index: 2; 
   }
 
+  /// Estilo para el icono representativo de la publicidad.
+  ///
+  /// El icono se posiciona encima del patrón de fondo.
+  /// @group Advertisement Elements
   .advertisement__icon {
-    font-size: 3rem; // 48px
-    margin-bottom: 1rem; // 16px
-    position: relative;
-    z-index: 2;
+    font-size: 3rem; 
+    margin-bottom: 1rem; 
+    position: relative; 
+    z-index: 2; 
   }
 
+  /// Estilo para el botón de llamada a la acción dentro de la publicidad.
+  ///
+  /// El botón se posiciona encima del fondo y tiene un efecto de cambio de color al pasar el ratón.
+  /// @group Advertisement Elements
   .advertisement__button {
-    @include button($accent-color);
-    margin-top: 1rem; // 16px
-    position: relative;
-    z-index: 2;
+    @include button($accent-color); 
+    margin-top: 1rem; 
+    position: relative; 
+    z-index: 2; 
+
+    /// Efecto de cambio de color en hover.
+    ///
+    /// Reduce la luminosidad del color de fondo en un 10% al pasar el ratón sobre el botón.
+    /// @group Advertisement Effects
     &:hover {
       background-color: color.adjust($accent-color, $lightness: -10%);
     }

@@ -2,11 +2,16 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 
-// Estilos para el encabezado
+/// Estilos para el encabezado (Header).
+///
+/// El encabezado tiene un fondo de color primario y se mantiene fijo en la parte superior de la página.
+/// Además, se incluye un efecto de cambio de color cuando el encabezado se desplaza hacia abajo.
+///
+/// @group Header Section
 .header {
   background-color: $primary-color;
   color: #fff;
-  padding: 1.25rem; // 20px
+  padding: 1.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,45 +21,73 @@
   z-index: 1000;
   transition: background-color 0.3s ease-in-out;
 
+  /// Estilo cuando el encabezado está en la posición desplazada (scrolled).
+  ///
+  /// Cuando el encabezado se desplaza, su fondo se hace translúcido para mejorar la visibilidad
+  /// del contenido de la página.
   &.scrolled {
-    background-color: rgba($primary-color, 0.8); // Fondo translúcido
+    background-color: rgba($primary-color, 0.8); 
   }
 
+  /// Estilo para el logo del encabezado.
+  ///
+  /// El logo se ajusta a un tamaño fijo, con una anchura de 150px y la altura ajustada automáticamente.
+  /// También se aplica un efecto de ampliación al pasar el cursor por encima.
   .header__logo .logo-img {
-    width: 150px; // Adjust the width as needed
-    height: auto; // Maintain aspect ratio
+    width: 150px;
+    height: auto;
   }
 
+  /// Efecto hover sobre el logo.
+  ///
+  /// Al pasar el ratón sobre el logo, este aumenta ligeramente de tamaño.
   .header__logo:hover {
     cursor: pointer;
     transform: scale(1.05);
   }
 
-
+  /// Estilos para la barra de navegación.
+  ///
+  /// La barra de navegación está compuesta por varios enlaces distribuidos con un espaciado adecuado.
+  /// Se incluyen estilos de hover y el estilo para el enlace activo.
   .header__nav {
     display: flex;
-    gap: 1.25rem; // 20px
+    gap: 1.25rem;
 
+    /// Estilos para cada item de la navegación.
+    ///
+    /// Cada elemento de la barra de navegación es un enlace que cambia de color al pasar el ratón
+    /// o al ser activo.
     .nav__item {
       a {
         color: #fff;
         text-decoration: none;
         position: relative;
-        padding: 0.5rem 0; // 8px 0
+        padding: 0.5rem 0;
 
+        /// Estilo para el enlace activo.
+        ///
+        /// El enlace activo cambiará al color de acento `$accent-color`.
         &.active {
           color: $accent-color;
         }
 
+        /// Efecto hover sobre los enlaces.
+        ///
+        /// Cambia el color del enlace al color de acento `$accent-color` cuando el ratón pasa por encima.
         &:hover {
-          color: $accent-color; // Cambiar color al pasar el ratón
+          color: $accent-color;
         }
 
+        /// Estilo del pseudo-elemento `::after` que crea una línea debajo del enlace.
+        ///
+        /// Este pseudo-elemento se anima para aparecer con un efecto de deslizamiento cuando el ratón
+        /// pasa sobre el enlace o cuando el enlace está activo.
         &::after {
           content: "";
           position: absolute;
           left: 0;
-          bottom: -0.25rem; // -4px
+          bottom: -0.25rem;
           width: 100%;
           height: 2px;
           background-color: $accent-color;
@@ -63,6 +96,9 @@
           transition: transform 0.3s ease-in-out;
         }
 
+        /// Activación de la línea debajo del enlace en el hover o cuando está activo.
+        ///
+        /// La línea se expande de derecha a izquierda con una transición.
         &:hover::after,
         &.active::after {
           transform: scaleX(1);

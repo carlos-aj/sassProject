@@ -2,60 +2,149 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 
-// Estilos para la sección de categorías
+/// Estilos para la sección de publicidad.
+///
+/// Esta sección está diseñada para mostrar anuncios de manera destacada, con un fondo llamativo y un diseño con una animación sutil en el fondo. Los elementos dentro de la sección incluyen un eslogan, un icono representativo y un botón de llamada a la acción.
+/// La sección tiene un fondo de color principal con un patrón diagonal de líneas semitransparentes.
+/// @group Advertisement Section
+.advertisement {
+  background-color: $primary-color;
+  color: #fff;
+  padding: 4rem 1.25rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  /// Fondo con patrón diagonal animado.
+  ///
+  /// Un patrón diagonal semi-transparente que se aplica sobre el fondo.
+  /// @group Advertisement Effects
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+    background-size: 4rem 4rem;
+    opacity: 0.5;
+    z-index: 1;
+  }
+
+  /// Estilo para el eslogan dentro de la sección de publicidad.
+  ///
+  /// Texto destacado que se posiciona encima del patrón de fondo.
+  /// @group Advertisement Elements
+  .advertisement__slogan {
+    @include font($large-font-size * 1.5, bold, $secondary-font);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /// Estilo para el icono representativo de la publicidad.
+  ///
+  /// El icono se posiciona encima del patrón de fondo.
+  /// @group Advertisement Elements
+  .advertisement__icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /// Estilo para el botón de llamada a la acción dentro de la publicidad.
+  ///
+  /// El botón se posiciona encima del fondo y tiene un efecto de cambio de color al pasar el ratón.
+  /// @group Advertisement Elements
+  .advertisement__button {
+    @include button($accent-color);
+    margin-top: 1rem;
+    position: relative;
+    z-index: 2;
+
+    /// Efecto de cambio de color en hover.
+    ///
+    /// Reduce la luminosidad del color de fondo en un 10% al pasar el ratón sobre el botón.
+    /// @group Advertisement Effects
+    &:hover {
+      background-color: color.adjust($accent-color, $lightness: -10%);
+    }
+  }
+}
+
+/// Estilos para la sección de categorías.
+///
+/// Utiliza un diseño de cuadrícula adaptable y un efecto de giro 3D en cada categoría.
+/// @group Categories Section
 .categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); // 320px
-  gap: 2rem; // 32px
-  padding: 3.125rem; // 50px
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem;
+  padding: 3.125rem;
   text-align: center;
   background-color: $background-color;
 
+  /// Tarjeta individual de categoría.
+  ///
+  /// Cada tarjeta tiene un diseño interactivo con animación de giro en 3D.
+  /// @group Category Card
   .category {
     background-color: #fff;
-    padding: 2rem; // 32px
+    padding: 2rem;
     text-align: center;
-    border-radius: 0.3125rem; // 5px
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); // 2px 4px
+    border-radius: 0.3125rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
     transition: transform 0.6s ease-in-out, background-color 0.6s ease-in-out;
-    perspective: 1000px; // Necesario para la animación de giro
-    height: 20rem; // 320px
+    perspective: 1000px;
+    height: 20rem;
     transform-style: preserve-3d;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 
+    /// Parte frontal de la tarjeta.
+    ///
+    /// Muestra el icono y el nombre de la categoría.
+    /// @group Category Elements
     .category__front,
     .category__back {
       position: absolute;
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border-radius: 0.3125rem; // 5px
+      border-radius: 0.3125rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
 
+    /// Estilos para la parte frontal.
     .category__front {
+      /// Icono representativo de la categoría.
+      /// @group Category Elements
       .category__icon {
-        font-size: 4rem; // 64px
-        margin-bottom: 1rem; // 16px
+        font-size: 4rem;
+        margin-bottom: 1rem;
         color: $primary-color;
       }
 
+      /// Nombre de la categoría.
       .category__name {
         @include font($large-font-size, bold);
         color: $text-color;
       }
     }
 
+    /// Parte trasera de la tarjeta.
     .category__back {
       transform: rotateY(180deg);
-      padding: 2rem; // 32px
-
+      padding: 2rem;
+      /// Información adicional en la parte trasera.
+      /// @group Category Elements
       .category__info {
         @include font($base-font-size);
         color: #fff;

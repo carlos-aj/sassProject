@@ -2,23 +2,33 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 
-// Estilos para la sección hero
+/// Estilos para la sección Hero.
+///
+/// Esta clase aplica una imagen de fondo, posiciona y organiza el contenido de la sección
+/// en un diseño centrado y con un fondo semitransparente para asegurar que el texto sea
+/// legible. Además, se establece un `min-height` para asegurar que ocupe al menos el 75% de la pantalla.
+///
+/// @group Hero Section
 .hero {
   background-image: url('../img/hero.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: #fff;
-  padding: 4rem 1.25rem; // 64px 20px
+  padding: 4rem 1.25rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 75vh; // Ajustar la altura mínima
+  min-height: 75vh;
   position: relative;
   z-index: 1;
 
+  /// Pseudo-elemento para el fondo semitransparente de la sección Hero.
+  ///
+  /// Se usa un `::before` para crear una capa semitransparente detrás del contenido de la
+  /// sección que mejora la legibilidad del texto en la imagen de fondo.
   &::before {
     content: "";
     position: absolute;
@@ -26,25 +36,39 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); // Fondo semitransparente para mejorar la legibilidad
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
   }
 
+  /// Estilos para el título de la sección Hero.
+  ///
+  /// El título utiliza el mixin `font` con un tamaño grande y el tipo de letra `$secondary-font`.
   .hero__title {
     @include font($large-font-size * 2, bold, $secondary-font);
-    margin-bottom: 1rem; // 16px
+    margin-bottom: 1rem;
   }
 
+  /// Estilos para el subtítulo de la sección Hero.
+  ///
+  /// El subtítulo tiene un tamaño ligeramente menor que el título y utiliza la fuente `$secondary-font`.
   .hero__subtitle {
     @include font($base-font-size * 1.5, normal, $secondary-font);
-    margin-bottom: 2rem; // 32px
+    margin-bottom: 2rem;
   }
 
+  /// Estilos para el botón de acción en la sección Hero.
+  ///
+  /// El botón utiliza el mixin `button` con el color `$accent-color` y tiene padding personalizado.
+  /// Al pasar el cursor por encima, cambia el color de fondo.
   .hero__button {
     @include button($accent-color);
     text-decoration: none;
-    padding: 1rem 2rem; // 16px 32px
+    padding: 1rem 2rem;
     font-size: $base-font-size * 1.25;
+    
+    /// Efecto hover para el botón.
+    ///
+    /// Cambia el color de fondo al hacer hover, haciendo el botón más interactivo.
     &:hover {
       background-color: color.adjust($accent-color, $lightness: -10%);
     }

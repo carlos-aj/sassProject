@@ -1,15 +1,44 @@
-// Variables de colores
+/// Variables de colores principales del diseño.
+///
+/// Colores usados en los elementos principales de la interfaz.
+/// @group Colors
+
+/// Color primario utilizado en botones y elementos destacados.
 $primary-color: #BD2A2E;
+
+/// Color secundario utilizado en fondos oscuros y textos secundarios.
 $secondary-color: #3B3936;
+
+/// Color de acento usado en detalles y bordes.
 $accent-color: #B2BEBF;
+
+/// Color de fondo principal del sitio.
 $background-color: #889C9B;
+
+/// Color principal para textos.
 $text-color: #486966;
 
-// Variables de tamaños
-$base-font-size: 1rem; // 16px
-$small-font-size: 0.875rem; // 14px
-$large-font-size: 1.25rem; // 20px
+/// Variables de tamaños de fuente.
+///
+/// Define los tamaños base y variantes de fuente.
+/// @group Typography
 
-// Variables de fuentes
+/// Tamaño base de fuente (16px).
+$base-font-size: 1rem;
+
+/// Tamaño de fuente pequeña (14px).
+$small-font-size: 0.875rem;
+
+/// Tamaño de fuente grande (20px).
+$large-font-size: 1.25rem;
+
+/// Variables de fuentes tipográficas.
+///
+/// Define las fuentes principales para el diseño.
+/// @group Typography
+
+/// Fuente primaria utilizada en el contenido general.
 $primary-font: 'Helvetica Neue', sans-serif;
+
+/// Fuente secundaria utilizada en títulos o elementos destacados.
 $secondary-font: 'Georgia', serif;

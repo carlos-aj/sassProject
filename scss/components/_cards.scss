@@ -1,48 +1,80 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 
-// Estilos para tarjetas
+/// Estilos para la sección de tarjetas.
+///
+/// Contiene un contenedor flexible para tarjetas que se adaptan al tamaño del viewport, 
+/// asegurando un diseño responsivo con una disposición en cuadrícula.
+/// @group Card Section
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr)); // 300px
-  gap: 1.25rem; // 20px
-  padding: 3.125rem; // 50px
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr)); 
+  gap: 1.25rem; 
+  padding: 3.125rem; 
 }
 
+/// Estilos generales para las tarjetas individuales.
+///
+/// Cada tarjeta tiene un fondo blanco, bordes redondeados, una sombra ligera y una animación de escala en hover.
+/// @group Card
 .card {
   background-color: #fff;
   border: 1px solid $background-color;
-  padding: 1.25rem; // 20px
-  border-radius: 0.3125rem; // 5px
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); // 2px 4px
+  padding: 1.25rem; 
+  border-radius: 0.3125rem; 
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); 
   text-align: center;
-  transition: transform 0.3s;
+  transition: transform 0.3s; 
 
+  /// Imagen dentro de la tarjeta.
+  ///
+  /// Se adapta al ancho de la tarjeta con bordes redondeados.
+  /// @group Card Elements
   img {
     width: 100%;
-    border-radius: 0.625rem; // 10px
+    border-radius: 0.625rem; 
   }
 
+  /// Título de la tarjeta.
+  ///
+  /// Usa el color primario y tiene un margen superior para separación.
+  /// @group Card Elements
   h3 {
     font-size: 1.5rem;
     color: $primary-color;
-    margin-top: 0.625rem; // 10px
+    margin-top: 0.625rem; 
   }
 
+  /// Texto descriptivo de la tarjeta.
+  ///
+  /// Usa el color de texto definido en variables y tiene margen para espaciamiento.
+  /// @group Card Elements
   p {
     color: $text-color;
-    margin: 0.625rem 0; // 10px
+    margin: 0.625rem 0; 
   }
 
+  /// Botón de acción dentro de la tarjeta.
+  ///
+  /// Utiliza el mixin `button` con el color primario.
+  /// @group Card Elements
   .card__button {
     @include button($primary-color);
-    margin-top: 0.625rem; // 10px
+    margin-top: 0.625rem; 
   }
 
+  /// Efecto al pasar el mouse sobre la tarjeta.
+  ///
+  /// Se aplica un leve escalado para resaltar el contenido.
+  /// @group Card Effects
   &:hover {
     transform: scale(1.03);
   }
 
+  /// Estilo especial para tarjetas destacadas.
+  ///
+  /// Se cambia el color del borde al color de acento.
+  /// @group Card Variants
   &--featured {
     border-color: $accent-color;
   }

@@ -1,7 +1,14 @@
 @use "sass:color";
 @use "variables" as *;
 
-// 📌 Flexbox
+/// Mixin para centrar elementos con Flexbox.
+///
+/// @param {String} $direction [row] - Dirección del flexbox (`row` o `column`).
+/// @group Layout
+/// @example scss - Uso del mixin
+///   .container {
+///     @include flex-center(column);
+///   }
 @mixin flex-center($direction: row) {
   display: flex;
   flex-direction: $direction;
@@ -9,27 +16,56 @@
   justify-content: center;
 }
 
-// 🎨 Botones
+/// Mixin para estilos de botones.
+///
+/// Aplica un fondo de color, color de texto blanco, padding y un `hover` dinámico.
+///
+/// @param {Color} $bg-color - Color de fondo del botón.
+/// @group Buttons
+/// @example scss - Uso del mixin
+///   .btn-primary {
+///     @include button(#3498db);
+///   }
 @mixin button($bg-color) {
   background-color: $bg-color;
   color: white;
-  padding: 0.625rem 1.25rem; // 10px 20px
-  border-radius: 0.3125rem; // 5px
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.3125rem; 
   font-weight: bold;
   text-transform: uppercase;
+
   &:hover {
     background-color: color.adjust($bg-color, $lightness: -10%);
   }
 }
 
-// Mixin para fuentes
+/// Mixin para aplicar estilos de fuente.
+///
+/// Define tamaño, peso y familia tipográfica.
+///
+/// @param {Number} $size - Tamaño de la fuente en `px` o `rem`.
+/// @param {String} $weight [normal] - Peso de la fuente (`normal`, `bold`, etc.).
+/// @param {String} $family [$primary-font] - Familia tipográfica (opcional).
+/// @group Typography
+/// @example scss - Uso del mixin
+///   h1 {
+///     @include font(2rem, bold, "Arial");
+///   }
 @mixin font($size, $weight: normal, $family: $primary-font) {
   font-size: $size;
   font-weight: $weight;
   font-family: $family;
 }
 
-// Mixin para flexbox
+/// Mixin para centrar elementos con flexbox.
+///
+/// Versión simplificada sin dirección de `flex-direction`.
+///
+/// @group Layout
+/// @example scss - Uso del mixin
+///   .box {
+///     @include flex-center;
+///   }
 @mixin flex-center {
   display: flex;
   justify-content: center;

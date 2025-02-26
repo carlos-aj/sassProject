@@ -1,4 +1,20 @@
-// Función para calcular el contraste de color
+/// Función para calcular el color de contraste.
+///
+/// Esta función evalúa la luminosidad del color dado y devuelve `#000` (negro) si es claro
+/// o `#fff` (blanco) si es oscuro. Se usa comúnmente para garantizar una buena legibilidad del texto
+/// sobre fondos de color variables.
+///
+/// @param {Color} $color - El color de entrada cuyo contraste se calculará.
+/// @return {Color} `#000` si el color es claro, `#fff` si el color es oscuro.
+///
+/// @example scss - Uso de `contrast-color`
+///   $bg-color: #f0f0f0;
+///   $text-color: contrast-color($bg-color); 
+/// 
+///   .button {
+///     background-color: $bg-color;
+///     color: contrast-color($bg-color);
+///   }
 @function contrast-color($color) {
   @if (lightness($color) > 50%) {
     @return #000;
